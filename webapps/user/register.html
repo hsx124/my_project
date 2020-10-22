@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="Shift_JIS">
+<title>ユーザレスジスタ</title>
+<link rel="stylesheet" href="register.css">
+</head>
+<body>
+	<div class="container">
+		<div class="left">
+			<p>ユーザレスジスタ</p>
+			<p>User Register</p>
+		</div>
+		<div class="center">
+			<div class="main">
+				<form action="user/saveUser" method="post" name="form">
+					<div class="msgArea">
+						<span id="msg"></span>
+					</div>
+					<table>
+						<tr>
+							<td class="td_left"><label for="id">I&nbsp;&nbsp;&nbsp;D：</label></td>
+							<td class="td_right"><input type="text" name="id"
+								autocomplete="off" placeholder="入力ください。" /></td>
+						</tr>
+						<tr>
+							<td class="td_left"><label for="password">パスワード：</label></td>
+							<td class="td_right"><input type="password" name="password"
+								autocomplete="off" placeholder="入力ください。" /></td>
+						</tr>
+						<tr>
+							<td class="td_left"><label for="email">メールアドレス：</label></td>
+							<td class="td_right"><input type="text" name="email"
+								autocomplete="off" placeholder="入力ください。" /></td>
+						</tr>
+						<tr>
+							<td class="td_left"><label for="realname">お名前：</label></td>
+							<td class="td_right"><input type="text" name="username"
+								autocomplete="off" placeholder="入力ください。" /></td>
+						</tr>
+						<tr>
+							<td class="td_left"><label for="telnumber">携帯番号：</label></td>
+							<td class="td_right"><input type="text" name="telnumber"
+								autocomplete="off" placeholder="入力ください。" maxlength=11 /></td>
+						</tr>
+						<tr>
+							<td class="td_left"><label for="sex">性別：</label></td>
+							<td class="td_right"><input type="radio" name="sex"
+								checked="true" value="female" />男 <input type="radio"
+								name="sex" value="male" />女</td>
+						</tr>
+						<tr>
+							<td class="td_left"><label for="birthday">生年月日：</label></td>
+							<td class="td_right"><input type="date" name="birthday"
+								autocomplete="off" placeholder="入力ください。" /></td>
+						</tr>
+						<tr>
+							<td class="td_left"><label for="checkcode">検証コード：</label></td>
+							<td class="td_right"><input type="text" name="checkcode"
+								autocomplete="off" placeholder="入力ください。" /> <img
+								alt="checkcode" src="user/checkCode" /></td>
+						</tr>
+						<tr>
+							<td colspan="2"><input type="button" value="申込" id="sb" /></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+		<div class="right">
+			<span>アカウントあり</span> <span><a href="login.html">ログイン</a></span>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/register.js"></script>
+</body>
+</html>

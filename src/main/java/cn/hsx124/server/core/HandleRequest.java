@@ -10,10 +10,13 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
+import cn.hsx124.server.util.FileReadUtil;
 import cn.hsx124.server.util.Logger;
 
 public class HandleRequest implements Runnable {
 	private Socket client;
+	private static final String ROOT_PATH = "webapps/";
+	private static final String ERROR_PAGE_ROOT_PATH = "webapps/error_page/404.html";
 
 	public HandleRequest(Socket client) {
 		this.client = client;
@@ -37,6 +40,15 @@ public class HandleRequest implements Runnable {
 				out.flush();
 			}
 
+			if(requestURI.endsWith(".css")){
+				out.println("HTTP/1.1 200 OK");
+				out.println("Content-Type:text/css;charset=Shift_JIS\n");
+				String readHTML = FileReadUtil.readHTML(ROOT_PATH+"user/register.css");
+				out.println(readHTML);
+				out.flush();
+			}
+
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -57,35 +69,24 @@ public class HandleRequest implements Runnable {
 		}
 	}
 
-	private void responeStaticHTML(String requestURI, PrintWriter out) throws IOException {
-		String staticResoure = "webapps/" + requestURI.substring(1);
-		String temp = null;
-		BufferedReader br = null;
+	private void responeStaticHTML(String requestURI, PrintWriter out) throws Exception {
+		String staticResoure = ROOT_PATH + requestURI.substring(1);
 		try {
-			br = new BufferedReader(new InputStreamReader(new FileInputStream(new File(staticResoure))));
+			String htmlString = FileReadUtil.readHTML(staticResoure);
 			out.println("HTTP/1.1 200 OK");
-			out.println("Content-Type:text/html;charset=utf-8\n");
-			while ((temp = br.readLine()) != null) {
-				out.println(temp);
-			}
+			out.println("Content-Type:text/html;charset=Shift_JIS\n");
+			out.println(htmlString);
 		} catch (FileNotFoundException e) {
-			br = new BufferedReader(new InputStreamReader(new FileInputStream(new File("webapps/error_page/404.html"))));
+			String htmlString = FileReadUtil.readHTML(ERROR_PAGE_ROOT_PATH);
 			out.println("HTTP/1.1 404 NotFound");
-			out.println("Content-Type:text/html;charset=utf-8\n");
-			while ((temp = br.readLine()) != null) {
-				out.println(temp);
-			}
+			out.println("Content-Type:text/html;charset=Shift_JIS\n");
+			out.println(htmlString);
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
-		} finally {
-			try {
-				br.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-
 	}
 
 }
