@@ -1,20 +1,22 @@
 package cn.hsx124.server.core;
 
-import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Arrays;
 
 import org.dom4j.Document;
+import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
 import cn.hsx124.server.util.Logger;
+import cn.hsx124.server.util.WebXMLParser;
 
 /**
- * ƒvƒƒOƒ‰ƒ~ƒ“ƒOÀs“üŒû
+ * ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°å®Ÿè¡Œå…¥å£
  *
  * @author shuxiong huang
  * @version 1.0
@@ -34,8 +36,20 @@ public class Bootstrap {
 		try {
 			server = new ServerSocket(getPort());
 			Logger.info("port = " + getPort());
+			Logger.info("web.xml is loading");
+			File file = new File("webapps");
+			File[] listFiles = file.listFiles();
+			String[] webapps = new String[listFiles.length];
+			for (int i = 0; i < listFiles.length; i++) {
+				if (!listFiles[i].getAbsolutePath().contains("error_page")
+						&& !listFiles[i].getAbsolutePath().contains("WEB-INF")) {
+					webapps[i] = listFiles[i].getName();
+				}
+			}
+			WebXMLParser.parser(webapps);
+			Logger.info("web.xml is loaded");
 			long end = System.currentTimeMillis();
-			Logger.info("httpserver started " + (end - start)+"ms");
+			Logger.info("httpserver started " + (end - start) + "ms");
 			while (true) {
 				Socket client = server.accept();
 				/*
@@ -61,9 +75,9 @@ public class Bootstrap {
 	}
 
 	/**
-	 * ƒ|[ƒg”Ô†æ“¾
+	 * ãƒãƒ¼ãƒˆç•ªå·å–å¾—
 	 *
-	 * @return ƒ|[ƒg”Ô†
+	 * @return ãƒãƒ¼ãƒˆç•ªå·
 	 */
 	private static Integer getPort() {
 		Integer port = 8080;

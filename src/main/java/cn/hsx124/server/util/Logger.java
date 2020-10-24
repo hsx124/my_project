@@ -1,7 +1,7 @@
 package cn.hsx124.server.util;
 
 /**
- * ƒƒO‚ğƒRƒ“ƒ\[ƒ‹‚Éo—ÍƒNƒ‰ƒX
+ * ãƒ­ã‚°ã‚’ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ã«å‡ºåŠ›ã‚¯ãƒ©ã‚¹
  *
  * @author shuxiong huang
  * @version 1.0
@@ -14,7 +14,7 @@ public class Logger {
 	}
 
 	/**
-	 * ƒƒOo—Í
+	 * ãƒ­ã‚°å‡ºåŠ›
 	 *
 	 * @param msg
 	 */

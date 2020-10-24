@@ -5,7 +5,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
- * “ú•tˆ—ƒNƒ‰ƒX
+ * æ—¥ä»˜å‡¦ç†ã‚¯ãƒ©ã‚¹
+ * 
  * @author shuxiong huang
  * @version 1.0
  * @since 1.0
@@ -13,9 +14,10 @@ import java.time.format.DateTimeFormatter;
  */
 public class DateUtil {
 
-	private DateUtil(){}
+	private DateUtil() {
+	}
 
-	public static String getCurrentStringDate(){
+	public static String getCurrentStringDate() {
 		LocalDateTime now = LocalDateTime.now();
 		DateTimeFormatter pattern = DateTimeFormatter.ofPattern("yyyy/MM/dd(E) HH:mm:ss.ss");
 		String stringDate = now.format(pattern);
