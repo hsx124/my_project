@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>优质接送服务 - 全球专业用车平台</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="images/favicon/site.webmanifest">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 页面遮罩 -->
+    <div class="page-overlay"></div>
+
+    <!-- 顶部信息栏 -->
+    <div class="top-bar">
+        <div class="container">
+            <span data-i18n="slogan">安心出行，服务到家</span>
+            <div class="trustpilot">
+                <img src="images/logo.png" alt="Trustpilot">
+            </div>
+        </div>
+    </div>
+
+    <!-- Logo和导航 -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo.png" alt="Logo">
+                <span data-i18n="brand_name">优质接送</span>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="menu">
+                <a href="#" class="menu-item active" data-i18n="home">首页</a>
+                <a href="#" class="menu-item" data-i18n="services">服务</a>
+                <a href="#" class="menu-item" data-i18n="vehicles">车型</a>
+                <a href="#" class="menu-item" data-i18n="about">关于我们</a>
+                <a href="#" class="menu-item" data-i18n="contact">联系我们</a>
+            </div>
+            <div class="header-right">
+                <div class="language-switch">
+                    <button class="lang-current">
+                        <img src="images/flags/cn.png" alt="中文">
+                        <span>中文</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="lang-dropdown">
+                        <a href="#" class="lang-option active" data-lang="zh">
+                            <img src="images/flags/cn.png" alt="中文">
+                            <span>中文</span>
+                        </a>
+                        <a href="#" class="lang-option" data-lang="en">
+                            <img src="images/flags/en.png" alt="English">
+                            <span>English</span>
+                        </a>
+                        <a href="#" class="lang-option" data-lang="ja">
+                            <img src="images/flags/jp.png" alt="日本語">
+                            <span>日本語</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="user-actions">
+                    <a href="/register" class="btn btn-outline" data-i18n="register">注册</a>
+                    <a href="/login" class="btn btn-primary" data-i18n="login">登录</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 将轮播图和预订表单包裹在一个 section 中 -->
+    <section class="hero-section">
+        <!-- 背景轮播 -->
+        <div class="hero-slider">
+            <div class="slide active">
+                <img src="hero-1.jpg" alt="豪华轿车">
+            </div>
+            <div class="slide">
+                <img src="pic_home_car2.png" alt="商务SUV">
+            </div>
+            <div class="slide">
+                <img src="hero-3.jpg" alt="商务MPV">
+            </div>
+        </div>
+
+        <!-- 预订表单部分 -->
+        <div class="booking-section">
+            <div class="booking-tabs">
+                <button class="tab active" data-i18n="pickup">单程接送</button>
+                <button class="tab" data-i18n="charter">包车服务</button>
+                <button class="tab" data-i18n="airport">接机服务</button>
+            </div>
+            <form class="booking-form">
+                <div class="form-group">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <input type="text" data-i18n-placeholder="pickup_point" placeholder="上车地点" required>
+                </div>
+                <div class="form-group">
+                    <i class="fas fa-map-marker"></i>
+                    <input type="text" data-i18n-placeholder="dropoff_point" placeholder="下车地点" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <i class="fas fa-calendar"></i>
+                        <input type="date" required>
+                    </div>
+                    <div class="form-group">
+                        <i class="fas fa-clock"></i>
+                        <input type="time" required>
+                    </div>
+                </div>
+                <button type="submit" class="search-btn" data-i18n="search">搜索车型</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- 支付方式部分移到这里 -->
+    <section class="payment-section">
+        <div class="container">
+            <div class="payment-methods">
+                <img src="visa.png" alt="Visa">
+                <img src="mastercard.png" alt="Mastercard">
+                <img src="paypal.png" alt="PayPal">
+                <img src="alipay.png" alt="Alipay">
+                <img src="discover.png" alt="Discover">
+                <img src="jcb.png" alt="JCB">
+            </div>
+        </div>
+    </section>
+
+    <!-- 预订步骤 -->
+    <section class="steps-section bg-white py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" data-i18n="booking_steps">预订步骤</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="steps-container bg-light rounded-4 p-4 position-relative">
+                        <!-- 步骤连接线 -->
+                        <div class="steps-line d-none d-lg-block"></div>
+                        
+                        <div class="row g-4">
+                            <!-- 步骤1 -->
+                            <div class="col-lg-3 col-md-6">
+                                <div class="step-item text-center">
+                                    <div class="step-number d-flex align-items-center justify-content-center mx-auto mb-3">
+                                        1
+                                    </div>
+                                    <h3 class="h5 mb-2" data-i18n="step1_title">搜索路线</h3>
+                                    <p class="text-muted mb-0" data-i18n="step1_desc">输入上下车地点和时间</p>
+                                </div>
+                            </div>
+                            
+                            <!-- 步骤2 -->
+                            <div class="col-lg-3 col-md-6">
+                                <div class="step-item text-center">
+                                    <div class="step-number d-flex align-items-center justify-content-center mx-auto mb-3">
+                                        2
+                                    </div>
+                                    <h3 class="h5 mb-2" data-i18n="step2_title">选择车型</h3>
+                                    <p class="text-muted mb-0" data-i18n="step2_desc">根据需求选择合适车型</p>
+                                </div>
+                            </div>
+                            
+                            <!-- 步骤3 -->
+                            <div class="col-lg-3 col-md-6">
+                                <div class="step-item text-center">
+                                    <div class="step-number d-flex align-items-center justify-content-center mx-auto mb-3">
+                                        3
+                                    </div>
+                                    <h3 class="h5 mb-2" data-i18n="step3_title">确认预订</h3>
+                                    <p class="text-muted mb-0" data-i18n="step3_desc">在线支付完成预订</p>
+                                </div>
+                            </div>
+                            
+                            <!-- 步骤4 -->
+                            <div class="col-lg-3 col-md-6">
+                                <div class="step-item text-center">
+                                    <div class="step-number d-flex align-items-center justify-content-center mx-auto mb-3">
+                                        4
+                                    </div>
+                                    <h3 class="h5 mb-2" data-i18n="step4_title">开始行程</h3>
+                                    <p class="text-muted mb-0" data-i18n="step4_desc">准时接送，安心出行</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 用户评价 -->
+    <section class="reviews-section py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-6 text-center">
+                    <h2 class="section-title" data-i18n="reviews_title">用户评价</h2>
+                    <p class="section-subtitle text-muted" data-i18n="reviews_subtitle">来自全球用户的真实评价，见证我们的服务品质</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <!-- 评价卡片1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="review-card h-100 bg-white rounded-4 p-4">
+                        <div class="review-header">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="mb-0">Sebastian H.</h5>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="ms-1 text-muted">5.0</span>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center text-muted mb-3">
+                                <div class="location">
+                                    <i class="fas fa-map-marker-alt me-1"></i>
+                                    德国 柏林
+                                </div>
+                                <div class="review-date ms-auto">
+                                    <i class="far fa-calendar-alt me-1"></i>
+                                    2024年3月15日
+                                </div>
+                            </div>
+                        </div>
+                        <p class="review-text">"服务非常专业，司机准时到达，全程体验非常好。车辆干净整洁，司机态度友好，让我的商务出行非常舒适。"</p>
+                    </div>
+                </div>
+
+                <!-- 评价卡片2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="review-card h-100 bg-white rounded-4 p-4">
+                        <div class="review-header">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="mb-0">张女士</h5>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="ms-1 text-muted">5.0</span>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center text-muted mb-3">
+                                <div class="location">
+                                    <i class="fas fa-map-marker-alt me-1"></i>
+                                    中国 上海
+                                </div>
+                                <div class="review-date ms-auto">
+                                    <i class="far fa-calendar-alt me-1"></i>
+                                    2024年3月10日
+                                </div>
+                            </div>
+                        </div>
+                        <p class="review-text">"机场接送非常准时，司机提前等候，服务态度很好。价格透明，没有额外收费，非常满意。"</p>
+                    </div>
+                </div>
+
+                <!-- 评价卡片3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="review-card h-100 bg-white rounded-4 p-4">
+                        <div class="review-header">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="mb-0">田中様</h5>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="ms-1 text-muted">5.0</span>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center text-muted mb-3">
+                                <div class="location">
+                                    <i class="fas fa-map-marker-alt me-1"></i>
+                                    日本 东京
+                                </div>
+                                <div class="review-date ms-auto">
+                                    <i class="far fa-calendar-alt me-1"></i>
+                                    2024年3月5日
+                                </div>
+                            </div>
+                        </div>
+                        <p class="review-text">"予約から配車まで、とてもスムーズでした。運転手さんも丁寧で、安心して移動できました。また利用したいです。"</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 查看更多按钮 -->
+            <div class="text-center mt-5">
+                <a href="#" class="btn btn-outline-primary px-4 py-2" data-i18n="view_more_reviews">
+                    查看更多评价
+                    <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 服务展示 -->
+    <section class="services-section py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" data-i18n="our_services">我们的服务</h2>
+            <div class="row g-4">
+                <!-- 服务项1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card h-100 bg-white rounded-4 shadow-sm p-4">
+                        <div class="service-icon mb-4">
+                            <img src="images/point-to-point.png" alt="机场接送" class="img-fluid">
+                        </div>
+                        <h3 class="h5 mb-3" data-i18n="service1_title">机场接送</h3>
+                        <p class="text-muted mb-0" data-i18n="service1_desc">专业机场接送服务，准时可靠，让您的旅程更加轻松</p>
+                    </div>
+                </div>
+
+                <!-- 服务项2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card h-100 bg-white rounded-4 shadow-sm p-4">
+                        <div class="service-icon mb-4">
+                            <img src="images/business-service.png" alt="商务用车" class="img-fluid">
+                        </div>
+                        <h3 class="h5 mb-3" data-i18n="service2_title">商务用车</h3>
+                        <p class="text-muted mb-0" data-i18n="service2_desc">高端商务用车服务，专业司机团队，尽显商务风范</p>
+                    </div>
+                </div>
+
+                <!-- 服务项3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card h-100 bg-white rounded-4 shadow-sm p-4">
+                        <div class="service-icon mb-4">
+                            <img src="images/tour-service.png" alt="旅游包车" class="img-fluid">
+                        </div>
+                        <h3 class="h5 mb-3" data-i18n="service3_title">旅游包车</h3>
+                        <p class="text-muted mb-0" data-i18n="service3_desc">舒适旅游包车服务，专业导游推荐，享受完美旅程</p>
+                    </div>
+                </div>
+
+                <!-- 服务项4 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card h-100 bg-white rounded-4 shadow-sm p-4">
+                        <div class="service-icon mb-4">
+                            <img src="images/wedding-service.png" alt="婚礼用车" class="img-fluid">
+                        </div>
+                        <h3 class="h5 mb-3" data-i18n="service4_title">婚礼用车</h3>
+                        <p class="text-muted mb-0" data-i18n="service4_desc">豪华婚礼用车服务，打造完美婚礼，留下美好回忆</p>
+                    </div>
+                </div>
+
+                <!-- 服务项5 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card h-100 bg-white rounded-4 shadow-sm p-4">
+                        <div class="service-icon mb-4">
+                            <img src="images/group-service.png" alt="团队用车" class="img-fluid">
+                        </div>
+                        <h3 class="h5 mb-3" data-i18n="service5_title">团队用车</h3>
+                        <p class="text-muted mb-0" data-i18n="service5_desc">专业团队用车服务，灵活调配，满足各类团队需求</p>
+                    </div>
+                </div>
+
+                <!-- 服务项6 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card h-100 bg-white rounded-4 shadow-sm p-4">
+                        <div class="service-icon mb-4">
+                            <img src="images/custom-service.png" alt="定制服务" class="img-fluid">
+                        </div>
+                        <h3 class="h5 mb-3" data-i18n="service6_title">定制服务</h3>
+                        <p class="text-muted mb-0" data-i18n="service6_desc">个性化定制服务，根据您的需求，提供专属方案</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 服务实拍图片展示 -->
+    <section class="service-photos py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5" data-i18n="service_photos_title">服务实拍</h2>
+            <div class="row g-4">
+                <!-- 图片项1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="photo-card position-relative rounded-4 overflow-hidden">
+                        <img src="service-1.jpg" alt="商务接待" class="img-fluid w-100">
+                        <div class="photo-overlay d-flex align-items-end">
+                            <div class="photo-info p-3">
+                                <h3 class="h5 text-white mb-0" data-i18n="photo1_title">商务接待</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 图片项2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="photo-card position-relative rounded-4 overflow-hidden">
+                        <img src="images/point-to-point.png" alt="机场接送" class="img-fluid w-100">
+                        <div class="photo-overlay d-flex align-items-end">
+                            <div class="photo-info p-3">
+                                <h3 class="h5 text-white mb-0" data-i18n="photo2_title">机场接送</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 图片项3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="photo-card position-relative rounded-4 overflow-hidden">
+                        <img src="service-3.jpg" alt="豪华轿车" class="img-fluid w-100">
+                        <div class="photo-overlay d-flex align-items-end">
+                            <div class="photo-info p-3">
+                                <h3 class="h5 text-white mb-0" data-i18n="photo3_title">豪华轿车</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 图片项4 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="photo-card position-relative rounded-4 overflow-hidden">
+                        <img src="service-4.jpg" alt="商务会议" class="img-fluid w-100">
+                        <div class="photo-overlay d-flex align-items-end">
+                            <div class="photo-info p-3">
+                                <h3 class="h5 text-white mb-0" data-i18n="photo4_title">商务会议</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 图片项5 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="photo-card position-relative rounded-4 overflow-hidden">
+                        <img src="service-5.jpg" alt="旅游包车" class="img-fluid w-100">
+                        <div class="photo-overlay d-flex align-items-end">
+                            <div class="photo-info p-3">
+                                <h3 class="h5 text-white mb-0" data-i18n="photo5_title">旅游包车</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 图片项6 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="photo-card position-relative rounded-4 overflow-hidden">
+                        <img src="service-6.jpg" alt="专业司机" class="img-fluid w-100">
+                        <div class="photo-overlay d-flex align-items-end">
+                            <div class="photo-info p-3">
+                                <h3 class="h5 text-white mb-0" data-i18n="photo6_title">专业司机</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 服务承诺 -->
+    <section class="service-promise">
+        <div class="container">
+            <div class="promise-grid">
+                <div class="promise-item">
+                    <i class="fas fa-car"></i>
+                    <h3 data-i18n="promise_vehicle">车辆保障</h3>
+                    <p data-i18n="promise_vehicle_desc">全新车型，定期维护</p>
+                </div>
+                <div class="promise-item">
+                    <i class="fas fa-umbrella"></i>
+                    <h3 data-i18n="promise_insurance">保险保障</h3>
+                    <p data-i18n="promise_insurance_desc">全程保险，安心出行</p>
+                </div>
+                <div class="promise-item">
+                    <i class="fas fa-medal"></i>
+                    <h3 data-i18n="promise_quality">品质保障</h3>
+                    <p data-i18n="promise_quality_desc">专业认证，服务保障</p>
+                </div>
+                <div class="promise-item">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <h3 data-i18n="promise_price">价格保障</h3>
+                    <p data-i18n="promise_price_desc">透明定价，无隐藏费用</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 合作伙伴 -->
+    <section class="partners-section">
+        <div class="container">
+            <h2 data-i18n="partners_title">合作伙伴</h2>
+            <div class="partners-grid">
+                <img src="partner-1.png" alt="合作伙伴">
+                <img src="partner-2.png" alt="合作伙伴">
+                <img src="partner-3.png" alt="合作伙伴">
+                <img src="partner-4.png" alt="合作伙伴">
+                <img src="partner-5.png" alt="合作伙伴">
+                <img src="partner-6.png" alt="合作伙伴">
+            </div>
+        </div>
+    </section>
+
+    <!-- 车型展示 -->
+    <section class="vehicles-section py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" data-i18n="vehicles_title">车型展示</h2>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="vehicle-card h-100 bg-white rounded-4 shadow-sm overflow-hidden">
+                        <div class="vehicle-img position-relative">
+                            <img src="luxury-sedan.jpg" alt="豪华轿车" class="w-100">
+                        </div>
+                        <div class="vehicle-info p-4">
+                            <h3 class="h5 mb-3" data-i18n="vehicle1_title">豪华轿车</h3>
+                            <p class="text-muted mb-3" data-i18n="vehicle1_desc">舒适稳重，商务首选</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="vehicle-features">
+                                    <span class="me-3"><i class="fas fa-user me-2"></i>4座</span>
+                                    <span><i class="fas fa-suitcase me-2"></i>3件行李</span>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price" data-i18n="price_from">起价：¥500/天</span>
+                                <button class="btn btn-primary" data-i18n="book_now">立即预订</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 其他车型卡片类似结构 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 全球覆盖地图 -->
+    <section class="coverage-section">
+        <div class="container">
+            <h2>全球服务网络</h2>
+            <div class="world-map">
+                <img src="world-map.png" alt="全球服务网络">
+            </div>
+        </div>
+    </section>
+
+    <!-- 热门目的地 -->
+    <section class="destinations-section">
+        <div class="container">
+            <h2 data-i18n="destinations_title">人气目的地推荐</h2>
+            <div class="destinations-grid">
+                <div class="destination-card">
+                    <img src="images/tokyo.jpg" alt="东京">
+                    <div class="destination-info">
+                        <h3 data-i18n="dest_tokyo">东京</h3>
+                        <span class="price">¥500起</span>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <img src="images/HongKong.jpg" alt="香港">
+                    <div class="destination-info">
+                        <h3 data-i18n="dest_hongkong">香港</h3>
+                        <span class="price">¥¥400起</span>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <img src="images/singapore.jpg" alt="新加坡">
+                    <div class="destination-info">
+                        <h3 data-i18n="dest_singapore">新加坡</h3>
+                        <span class="price">¥600起</span>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <img src="images/sydney.jpg" alt="悉尼">
+                    <div class="destination-info">
+                        <h3 data-i18n="dest_seoul">悉尼</h3>
+                        <span class="price">¥450起</span>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <img src="images/osaka.jpg" alt="大阪">
+                    <div class="destination-info">
+                        <h3 data-i18n="dest_bangkok">大阪</h3>
+                        <span class="price">¥350起</span>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <img src="images/taipei.jpg" alt="台北">
+                    <div class="destination-info">
+                        <h3 data-i18n="dest_taipei">台北</h3>
+                        <span class="price">¥380起</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 旅游资讯 -->
+    <section class="travel-info-section">
+        <div class="container">
+            <div class="info-header">
+                <h2 data-i18n="travel_info_title">旅游资讯</h2>
+                <a href="#" class="more-link">查看更多 <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="info-grid">
+                <div class="info-main">
+                    <img src="news-main.jpg" alt="旅游资讯">
+                    <div class="info-content">
+                        <span class="tag" data-i18n="hot_tag">热门推荐</span>
+                        <h3>东京樱花季最佳观赏地点推荐</h3>
+                        <p>精选东京地区最佳赏樱地点，带您体验浪漫樱花季</p>
+                    </div>
+                </div>
+                <div class="info-side">
+                    <div class="info-card">
+                        <img src="news-1.jpg" alt="旅游资讯">
+                        <div class="info-content">
+                            <span class="tag" data-i18n="guide_tag">攻略</span>
+                            <h3>香港三天两夜精品路线</h3>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <img src="news-2.jpg" alt="旅游资讯">
+                        <div class="info-content">
+                            <span class="tag" data-i18n="food_tag">美食</span>
+                            <h3>新加坡必吃地道美食推荐</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 服务优势 -->
+    <section class="advantages-section">
+        <div class="container">
+            <h2 data-i18n="advantages_title">服务优势</h2>
+            <div class="advantages-grid">
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="advantage-content">
+                        <h3 data-i18n="advantage1_title">安全保障</h3>
+                        <p data-i18n="advantage1_desc">全程保险覆盖，车内实时监控，专业司机团队，确保您的出行安全</p>
+                    </div>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="advantage-content">
+                        <h3 data-i18n="advantage2_title">专业司机</h3>
+                        <p data-i18n="advantage2_desc">经验丰富，多语言交流，着装规范，服务贴心周到</p>
+                    </div>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="advantage-content">
+                        <h3 data-i18n="advantage3_title">准时可靠</h3>
+                        <p data-i18n="advantage3_desc">GPS全程监控，提前到达，保证准时接送，从不延误</p>
+                    </div>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div class="advantage-content">
+                        <h3 data-i18n="advantage4_title">24小时服务</h3>
+                        <p data-i18n="advantage4_desc">全天候客服支持，紧急情况快速响应，让您无忧出行</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 在线客服 -->
+    <div class="customer-service">
+        <button class="cs-button">
+            <i class="fas fa-comments"></i>
+            <span>在线客服</span>
+        </button>
+    </div>
+
+    <!-- 返回顶部 -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- 左侧 Logo 和简介 -->
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <img src="images/logo.png" alt="Logo">
+                        <span data-i18n="brand_name">优质接送</span>
+                    </div>
+                    <p class="footer-desc" data-i18n="footer_desc">7x24小时专业接送服务</p>
+                    <div class="footer-contact">
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <span data-i18n="contact_phone">400-888-8888</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span data-i18n="contact_email">service@example.com</span>
+                        </div>
+                    </div>
+                    <!-- 社交媒体图标 -->
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" data-tooltip="微信公众号">
+                            <i class="fab fa-weixin"></i>
+                        </a>
+                        <a href="#" class="social-icon" data-tooltip="官方微博">
+                            <i class="fab fa-weibo"></i>
+                        </a>
+                        <a href="#" class="social-icon" data-tooltip="抖音号">
+                            <i class="e-icon --tiktok"></i>
+                        </a>
+                        <a href="#" class="social-icon" data-tooltip="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 中间链接组 -->
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h3 data-i18n="footer_about_title">关于我们</h3>
+                        <ul>
+                            <li><a href="#" data-i18n="footer_about_company">公司简介</a></li>
+                            <li><a href="#">服务条款</a></li>
+                            <li><a href="#">隐私政策</a></li>
+                            <li><a href="#">新闻资讯</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h3 data-i18n="footer_support_title">客户支持</h3>
+                        <ul>
+                            <li><a href="#">常见问题</a></li>
+                            <li><a href="#">联系我们</a></li>
+                            <li><a href="#">投诉建议</a></li>
+                            <li><a href="#">紧急联系</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h3 data-i18n="footer_business_title">商务合作</h3>
+                        <ul>
+                            <li><a href="#">加盟合作</a></li>
+                            <li><a href="#">企业用车</a></li>
+                            <li><a href="#">司机招募</a></li>
+                            <li><a href="#">商务咨询</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 右侧二维码 -->
+                <div class="footer-qr">
+                    <div class="qr-codes">
+                        <div class="qr-code">
+                            <img src="wechat-qr.png" alt="微信">
+                            <span data-i18n="wechat_qr">微信公众号</span>
+                        </div>
+                        <div class="qr-code">
+                            <img src="app-qr.png" alt="APP">
+                            <span data-i18n="app_qr">下载APP</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="copyright">© 2024 优质接送服务. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 移动导航菜单 -->
+    <div class="mobile-nav">
+        <div class="mobile-nav-header">
+            <div class="logo">
+                <img src="images/logo.png" alt="Logo">
+                <span>优质接送</span>
+            </div>
+            <button class="mobile-nav-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="mobile-nav-content">
+            <nav class="mobile-menu">
+                <a href="#" class="mobile-menu-item active" data-i18n="home">首页</a>
+                <a href="#" class="mobile-menu-item" data-i18n="services">服务</a>
+                <a href="#" class="mobile-menu-item" data-i18n="vehicles">车型</a>
+                <a href="#" class="mobile-menu-item" data-i18n="about">关于我们</a>
+                <a href="#" class="mobile-menu-item" data-i18n="contact">联系我们</a>
+            </nav>
+            <div class="mobile-user-actions">
+                <a href="/register" class="btn btn-outline" data-i18n="register">注册</a>
+                <a href="/login" class="btn btn-primary" data-i18n="login">登录</a>
+            </div>
+            <div class="mobile-language">
+                <h3>选择语言</h3>
+                <div class="mobile-lang-options">
+                    <button class="lang-option active" data-lang="zh">
+                        <div class="lang-option-content">
+                            <div class="lang-option-left">
+                                <img src="images/flags/cn.png" alt="中文">
+                                <span>中文</span>
+                            </div>
+                            <i class="fas fa-check"></i>
+                        </div>
+                    </button>
+                    <button class="lang-option" data-lang="en">
+                        <div class="lang-option-content">
+                            <div class="lang-option-left">
+                                <img src="images/flags/en.png" alt="English">
+                                <span>English</span>
+                            </div>
+                            <i class="fas fa-check"></i>
+                        </div>
+                    </button>
+                    <button class="lang-option" data-lang="ja">
+                        <div class="lang-option-content">
+                            <div class="lang-option-left">
+                                <img src="images/flags/jp.png" alt="日本語">
+                                <span>日本語</span>
+                            </div>
+                            <i class="fas fa-check"></i>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+    
+</body>
+</html> 
