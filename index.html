@@ -552,7 +552,8 @@
     <section class="destinations-section">
         <div class="container">
             <h2 data-i18n="destinations_title">人气目的地推荐</h2>
-            <div class="destinations-grid">
+            <!-- PC端展示 -->
+            <div class="destinations-grid desktop-only">
                 <div class="destination-card">
                     <img src="images/tokyo.jpg" alt="东京">
                     <div class="destination-info">
@@ -564,7 +565,7 @@
                     <img src="images/HongKong.jpg" alt="香港">
                     <div class="destination-info">
                         <h3 data-i18n="dest_hongkong">香港</h3>
-                        <span class="price">¥¥400起</span>
+                        <span class="price">¥400起</span>
                     </div>
                 </div>
                 <div class="destination-card">
@@ -594,6 +595,60 @@
                         <h3 data-i18n="dest_taipei">台北</h3>
                         <span class="price">¥380起</span>
                     </div>
+                </div>
+            </div>
+            
+            <!-- 移动端轮播 -->
+            <div class="destinations-slider mobile-only">
+                <div class="slider-wrapper">
+                    <div class="slider-track">
+                        <div class="destination-card">
+                            <img src="images/tokyo.jpg" alt="东京">
+                            <div class="destination-info">
+                                <h3 data-i18n="dest_tokyo">东京</h3>
+                                <span class="price">¥500起</span>
+                            </div>
+                        </div>
+                        <div class="destination-card">
+                            <img src="images/HongKong.jpg" alt="香港">
+                            <div class="destination-info">
+                                <h3 data-i18n="dest_hongkong">香港</h3>
+                                <span class="price">¥400起</span>
+                            </div>
+                        </div>
+                        <div class="destination-card">
+                            <img src="images/singapore.jpg" alt="新加坡">
+                            <div class="destination-info">
+                                <h3 data-i18n="dest_singapore">新加坡</h3>
+                                <span class="price">¥600起</span>
+                            </div>
+                        </div>
+                        <div class="destination-card">
+                            <img src="images/sydney.jpg" alt="悉尼">
+                            <div class="destination-info">
+                                <h3 data-i18n="dest_seoul">悉尼</h3>
+                                <span class="price">¥450起</span>
+                            </div>
+                        </div>
+                        <div class="destination-card">
+                            <img src="images/osaka.jpg" alt="大阪">
+                            <div class="destination-info">
+                                <h3 data-i18n="dest_bangkok">大阪</h3>
+                                <span class="price">¥350起</span>
+                            </div>
+                        </div>
+                        <div class="destination-card">
+                            <img src="images/taipei.jpg" alt="台北">
+                            <div class="destination-info">
+                                <h3 data-i18n="dest_taipei">台北</h3>
+                                <span class="price">¥380起</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-controls">
+                    <button class="slider-prev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="slider-next"><i class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
         </div>

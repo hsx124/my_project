@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initLazyLoading();
     initTheme();
     initScrollAnimations();
+    initDestinationsSlider();
 });
 
 // 轮播图功能
@@ -472,19 +473,6 @@ function initLanguageSwitch() {
     const langOptions = document.querySelectorAll('.lang-dropdown .lang-option');
     const mobileLangOptions = document.querySelectorAll('.mobile-lang-options .lang-option');
 
-    // PC端语言切换逻辑
-    if (langCurrent) {
-        langCurrent.addEventListener('click', (e) => {
-            e.stopPropagation();
-            langSwitch.classList.toggle('active');
-        });
-    }
-
-    // 点击其他地方关闭语言下拉菜单
-    document.addEventListener('click', () => {
-        langSwitch?.classList.remove('active');
-    });
-
     // 统一的语言切换处理函数
     function handleLanguageChange(lang, imgSrc, text) {
         // 更新PC端显示
@@ -514,6 +502,19 @@ function initLanguageSwitch() {
         translatePage(lang);
     }
 
+    // PC端语言切换逻辑
+    if (langCurrent) {
+        langCurrent.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langSwitch.classList.toggle('active');
+        });
+    }
+
+    // 点击其他地方关闭语言下拉菜单
+    document.addEventListener('click', () => {
+        langSwitch?.classList.remove('active');
+    });
+
     // PC端语言选项点击事件
     langOptions.forEach(option => {
         option.addEventListener('click', (e) => {
@@ -541,7 +542,7 @@ function initLanguageSwitch() {
     const currentOption = document.querySelector(`.lang-option[data-lang="${currentLang}"]`);
     if (currentOption) {
         const img = currentOption.querySelector('img').src;
-        const text = option.querySelector('span').textContent;
+        const text = currentOption.querySelector('span').textContent;
         handleLanguageChange(currentLang, img, text);
     }
 }
@@ -700,4 +701,80 @@ function initScrollAnimations() {
     });
     
     elements.forEach(el => observer.observe(el));
+}
+
+// 目的地轮播功能
+function initDestinationsSlider() {
+    const sliderTrack = document.querySelector('.destinations-slider .slider-track');
+    const prevButton = document.querySelector('.destinations-slider .slider-prev');
+    const nextButton = document.querySelector('.destinations-slider .slider-next');
+    const cards = document.querySelectorAll('.destinations-slider .destination-card');
+    
+    if (!sliderTrack || !prevButton || !nextButton || cards.length === 0) return;
+    
+    let currentIndex = 0;
+    let startX = 0;
+    let isDragging = false;
+    
+    function updateSlider() {
+        const cardWidth = cards[0].offsetWidth + 20; // 卡片宽度 + 间距
+        sliderTrack.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+    }
+    
+    function slideNext() {
+        if (currentIndex < cards.length - 1) {
+            currentIndex++;
+            updateSlider();
+        }
+    }
+    
+    function slidePrev() {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateSlider();
+        }
+    }
+    
+    // 触摸事件处理
+    sliderTrack.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        isDragging = true;
+        sliderTrack.style.transition = 'none';
+    });
+    
+    sliderTrack.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        const currentX = e.touches[0].clientX;
+        const diff = currentX - startX;
+        const cardWidth = cards[0].offsetWidth + 20;
+        const offset = -currentIndex * cardWidth + diff;
+        sliderTrack.style.transform = `translateX(${offset}px)`;
+    });
+    
+    sliderTrack.addEventListener('touchend', (e) => {
+        isDragging = false;
+        sliderTrack.style.transition = 'transform 0.3s ease';
+        const currentX = e.changedTouches[0].clientX;
+        const diff = currentX - startX;
+        
+        if (Math.abs(diff) > 50) { // 滑动距离超过50px时切换
+            if (diff > 0) {
+                slidePrev();
+            } else {
+                slideNext();
+            }
+        } else {
+            updateSlider(); // 恢复原位
+        }
+    });
+    
+    // 按钮点击事件
+    prevButton.addEventListener('click', slidePrev);
+    nextButton.addEventListener('click', slideNext);
+    
+    // 窗口大小改变时更新滑块位置
+    window.addEventListener('resize', updateSlider);
+    
+    // 初始化
+    updateSlider();
 } 

@@ -890,39 +890,49 @@ body {
 
 /* 目的地展示部分 */
 .destinations-section {
-    padding: 80px 0;
-    background: white;
+    padding: 60px 0;
+    background-color: var(--background);
 }
 
 .destinations-section h2 {
     text-align: center;
     margin-bottom: 40px;
     font-size: 32px;
+    color: var(--text-color);
 }
 
-.destinations-grid {
+/* 默认隐藏移动端轮播 */
+.mobile-only {
+    display: none;
+}
+
+/* PC端网格布局 */
+.destinations-grid.desktop-only {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    grid-template-rows: repeat(2, auto);
+    gap: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 20px;
 }
 
 .destination-card {
     position: relative;
-    border-radius: 8px;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition);
-}
-
-.destination-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-md);
+    aspect-ratio: 16/9;
 }
 
 .destination-card img {
     width: 100%;
-    height: 250px;
+    height: 100%;
     object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.destination-card:hover img {
+    transform: scale(1.05);
 }
 
 .destination-info {
@@ -931,18 +941,95 @@ body {
     left: 0;
     right: 0;
     padding: 20px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
     color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
 }
 
 .destination-info h3 {
-    margin-bottom: 5px;
-    font-size: 20px;
+    font-size: 24px;
+    margin: 0;
+    font-weight: 500;
 }
 
 .destination-info .price {
+    font-size: 18px;
+    font-weight: 500;
     color: white;
-    font-size: 16px;
+}
+
+/* 移动端轮播样式 */
+.destinations-slider {
+    position: relative;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.slider-wrapper {
+    overflow: hidden;
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.3s ease;
+}
+
+.destinations-slider .destination-card {
+    flex: 0 0 90%;
+    margin: 0 10px;
+}
+
+.slider-controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    pointer-events: none;
+}
+
+.slider-prev,
+.slider-next {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    pointer-events: auto;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* 响应式样式 */
+@media (max-width: 768px) {
+    .desktop-only {
+        display: none !important; /* 强制隐藏PC端布局 */
+    }
+    
+    .mobile-only {
+        display: block !important; /* 强制显示移动端布局 */
+    }
+    
+    .destinations-slider .destination-card {
+        flex: 0 0 85%;
+        scroll-snap-align: center;
+    }
+    
+    .destination-info h3 {
+        font-size: 20px;
+    }
+    
+    .destination-info .price {
+        font-size: 16px;
+    }
 }
 
 /* 旅游资讯部分 */
