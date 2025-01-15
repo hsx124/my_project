@@ -1,0 +1,71 @@
+:root {
+    /* 亮色主题变量 */
+    --primary-color: #2563eb;
+    --secondary-color: #0ea5e9;
+    --text-color: #1e293b;
+    --bg-color: #ffffff;
+    --card-bg: #ffffff;
+    --border-color: #e2e8f0;
+    
+    /* 动画时间 */
+    --transition-fast: 0.2s;
+    --transition-normal: 0.3s;
+    --transition-slow: 0.5s;
+}
+
+[data-theme="dark"] {
+    /* 暗色主题变量 */
+    --primary-color: #3b82f6;
+    --secondary-color: #38bdf8;
+    --text-color: #e2e8f0;
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
+    --border-color: #334155;
+}
+
+/* 平滑过渡 */
+body {
+    transition: background-color var(--transition-normal),
+                color var(--transition-normal);
+}
+
+/* 主题切换按钮样式 */
+.theme-toggle {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all var(--transition-fast);
+}
+
+.theme-toggle:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* 苹果风格的动效 */
+.hover-scale {
+    transition: transform var(--transition-fast);
+}
+
+.hover-scale:hover {
+    transform: scale(1.02);
+}
+
+/* 渐入动画 */
+.fade-in {
+    animation: fadeIn var(--transition-normal);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+} 

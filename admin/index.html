@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后台管理系统</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- 侧边栏 -->
+        <nav id="sidebar" class="shadow-lg">
+            <div class="sidebar-header p-4">
+                <div class="d-flex align-items-center gap-3">
+                    <img src="images/logo.png" alt="Logo" class="logo-img">
+                    <h3 class="mb-0 fw-bold">管理系统</h3>
+                </div>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <a href="#" data-page="dashboard" class="d-flex align-items-center gap-3 py-3 px-4">
+                        <i class="fas fa-gauge-high"></i>
+                        <span>控制台</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-page="destinations" class="d-flex align-items-center gap-3 py-3 px-4">
+                        <i class="fas fa-map-location-dot"></i>
+                        <span>目的地管理</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-page="vehicles" class="d-flex align-items-center gap-3 py-3 px-4">
+                        <i class="fas fa-car"></i>
+                        <span>车型管理</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-page="services" class="d-flex align-items-center gap-3 py-3 px-4">
+                        <i class="fas fa-concierge-bell"></i>
+                        <span>服务管理</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-page="orders" class="d-flex align-items-center gap-3 py-3 px-4">
+                        <i class="fas fa-clipboard-list"></i>
+                        <span>订单管理</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-page="users" class="d-flex align-items-center gap-3 py-3 px-4">
+                        <i class="fas fa-users"></i>
+                        <span>用户管理</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-page="settings" class="d-flex align-items-center gap-3 py-3 px-4">
+                        <i class="fas fa-cog"></i>
+                        <span>系统设置</span>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- 主题切换按钮 -->
+            <div class="theme-switch px-4 py-3 mt-auto">
+                <button class="btn btn-outline-light w-100 d-flex align-items-center justify-content-center gap-2" id="themeToggle">
+                    <i class="fas fa-sun"></i>
+                    <span>切换主题</span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- 主要内容区域 -->
+        <div id="content">
+            <!-- 顶部导航栏 -->
+            <nav class="navbar navbar-expand-lg bg-white shadow-sm">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                        <i class="fas fa-bars"></i>
+                    </button>
+
+                    <div class="d-flex align-items-center gap-3">
+                        <!-- 搜索框 -->
+                        <div class="search-box d-none d-md-block">
+                            <div class="input-group">
+                                <span class="input-group-text border-0 bg-light">
+                                    <i class="fas fa-search text-muted"></i>
+                                </span>
+                                <input type="text" class="form-control border-0 bg-light" placeholder="搜索...">
+                            </div>
+                        </div>
+
+                        <!-- 通知下拉菜单 -->
+                        <div class="dropdown">
+                            <button class="btn btn-link text-dark position-relative" data-bs-toggle="dropdown">
+                                <i class="fas fa-bell"></i>
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    3
+                                </span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end animate__animated animate__fadeIn">
+                                <!-- 通知内容 -->
+                            </div>
+                        </div>
+
+                        <!-- 用户下拉菜单 -->
+                        <div class="dropdown">
+                            <button class="btn btn-link text-dark d-flex align-items-center gap-2" data-bs-toggle="dropdown">
+                                <img src="images/avatar.jpg" alt="Avatar" class="rounded-circle" width="32">
+                                <span class="d-none d-md-inline">管理员</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end animate__animated animate__fadeIn">
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>个人信息</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>系统设置</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-sign-out-alt me-2"></i>退出登录</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- 页面内容区域 -->
+            <div id="page-content" class="container-fluid p-4">
+                <!-- 内容将通过 JavaScript 动态加载 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- 自定义脚本 -->
+    <script src="js/admin.js"></script>
+</body>
+</html> 

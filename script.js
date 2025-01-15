@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initCustomerService();
     initMobileNav();
     initLazyLoading();
+    initTheme();
+    initScrollAnimations();
 });
 
 // 轮播图功能
@@ -423,7 +425,7 @@ const translations = {
         'photo4_title': 'ビジネス会議',
         'photo5_title': '観光チャーター',
         'photo6_title': 'プロドライバー',
-        'promise_vehicle': '車両保�',
+        'promise_vehicle': '車両保',
         'promise_vehicle_desc': '新車、定期メンテナンス',
         'promise_insurance': '保険保証',
         'promise_insurance_desc': '全行程保険付き、安心な移動',
@@ -653,4 +655,49 @@ function initLazyLoading() {
     });
 
     lazyImages.forEach(img => imageObserver.observe(img));
+}
+
+// 主题切换功能
+function initTheme() {
+    const theme = localStorage.getItem('theme') || 'light';
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    
+    // 设置初始主题
+    html.setAttribute('data-theme', theme);
+    updateThemeIcon(theme);
+    
+    // 主题切换事件
+    themeToggle?.addEventListener('click', () => {
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        
+        html.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateThemeIcon(newTheme);
+    });
+}
+
+// 更新主题图标
+function updateThemeIcon(theme) {
+    const icon = document.querySelector('#themeToggle i');
+    if (icon) {
+        icon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+    }
+}
+
+// 添加页面滚动动画
+function initScrollAnimations() {
+    const elements = document.querySelectorAll('.animate-on-scroll');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+                observer.unobserve(entry.target);
+            }
+        });
+    });
+    
+    elements.forEach(el => observer.observe(el));
 } 
