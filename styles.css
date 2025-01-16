@@ -2391,3 +2391,105 @@ body {
         transform: scale(1.4);
     }
 } 
+/* 响应式调整 */
+@media (max-width: 1200px) {
+    .footer-content {
+        grid-template-columns: 1fr 2fr;
+    }
+    
+    .footer-qr {
+        grid-column: span 2;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 991px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+    
+    .footer-links {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .footer-qr {
+        grid-column: auto;
+    }
+    
+    .footer-info {
+        align-items: center;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 3rem 0 1.5rem;
+    }
+    
+    .footer-links {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    
+    .link-group {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 1rem 0;
+    }
+    
+    .link-group h3 {
+        margin: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        font-size: 1rem;
+    }
+    
+    .link-group h3::after {
+        content: '+';
+        font-size: 1.25rem;
+        color: var(--text-light);
+        transition: transform var(--transition-normal);
+    }
+    
+    .link-group.active h3::after {
+        transform: rotate(45deg);
+    }
+    
+    .link-group ul {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: all var(--transition-normal);
+        margin: 0;
+    }
+    
+    .link-group.active ul {
+        max-height: 500px;
+        opacity: 1;
+        margin-top: 1rem;
+    }
+    
+    .link-group li {
+        transform: translateY(-5px);
+        opacity: 0;
+        transition: transform var(--transition-normal), opacity var(--transition-normal);
+    }
+    
+    .link-group.active li {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    
+    .qr-codes {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .qr-code img {
+        width: 8rem;
+        height: 8rem;
+    }
+} 
